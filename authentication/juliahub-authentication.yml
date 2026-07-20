@@ -1,0 +1,44 @@
+generated: '2026-07-19'
+method: searched
+source: https://juliahub.com/.well-known/openid-configuration
+docs: https://help.juliahub.com/julia-api/stable/guides/authentication/
+summary:
+  types: [oauth2, openIdConnect]
+  oauth2_flows: [authorizationCode, deviceCode, refreshToken, tokenExchange]
+  bearer: true
+  notes: >-
+    JuliaHub authenticates via OpenID Connect / OAuth2 provided by a Dex
+    identity provider (issuer https://auth.juliahub.com/dex). The JuliaHub.jl
+    Julia client and the `jh` CLI both use the OAuth2 device-authorization
+    (device code) flow to obtain a JWT bearer token, which is then sent on
+    JuliaHub platform REST/GraphQL requests.
+schemes:
+- name: OpenIDConnect
+  type: openIdConnect
+  openIdConnectUrl: https://juliahub.com/.well-known/openid-configuration
+  issuer: https://auth.juliahub.com/dex
+  sources: [well-known/juliahub-openid-configuration.json]
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://auth.juliahub.com/dex/auth
+    tokenUrl: https://auth.juliahub.com/dex/token
+  - flow: deviceCode
+    deviceAuthorizationUrl: https://auth.juliahub.com/dex/device/code
+    tokenUrl: https://auth.juliahub.com/dex/token
+    note: primary flow used by JuliaHub.jl and the jh CLI (urn:ietf:params:oauth:grant-type:device_code)
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:ietf:params:oauth:grant-type:token-exchange
+  token_endpoint_auth_methods: [client_secret_basic, client_secret_post]
+  pkce: [S256, plain]
+  sources: [well-known/juliahub-openid-configuration.json]
+- name: BearerToken
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  note: JWT id/access token minted by Dex, presented to JuliaHub platform APIs
+  sources: [https://github.com/JuliaComputing/jh]
