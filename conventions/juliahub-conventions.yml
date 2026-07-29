@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: searched
+source: https://help.juliahub.com/julia-api/stable/; https://github.com/JuliaComputing/jh
+summary: >-
+  Cross-cutting conventions for the JuliaHub platform API as exercised by the
+  official JuliaHub.jl Julia client and the jh CLI. No public OpenAPI is
+  published; these conventions are captured from the client docs and CLI source.
+authentication:
+  style: oauth2-bearer
+  flow: oauth2-device-code
+  token: JWT bearer (id/access token minted by Dex at auth.juliahub.com/dex)
+  see: authentication/juliahub-authentication.yml
+transport:
+  protocols: [https-rest, graphql]
+  note: >-
+    Primary access is a REST API; some read surfaces (projects, package/group
+    queries) use GraphQL. The jh CLI describes REST with a GraphQL fallback.
+versioning:
+  client_scheme: semver
+  client_changelog: changelog/juliahub-changelog.yml
+  note: The client library is versioned with SemVer + Keep a Changelog; the platform REST API is not publicly documented as versioned.
+idempotency:
+  supported: unknown
+  note: No idempotency-key contract is documented in the public client docs; not asserted.
+pagination:
+  supported: unknown
+  note: Not documented in public client surface.
+error_handling:
+  client_exceptions: [JuliaHubError, JuliaHubConnectionError]
+  note: JuliaHub.jl raises typed exceptions (e.g. JuliaHubError) on backend errors.
+cross_links:
+  authentication: authentication/juliahub-authentication.yml
+  scopes: scopes/juliahub-scopes.yml
+  changelog: changelog/juliahub-changelog.yml
+  cli: cli/juliahub-cli.yml

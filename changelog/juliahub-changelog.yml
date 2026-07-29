@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/JuliaComputing/JuliaHub.jl/blob/main/CHANGELOG.md
+scope: JuliaHub.jl (official Julia client library)
+scheme: semver
+format: keepachangelog
+current_version: 0.1.17
+entries:
+- version: Unreleased
+  additions:
+  - '`submit_job` expose argument accepts a JobRemoteAccess object (access mode + fixed DNS prefix); ports can be exposed on package application jobs.'
+  - 'PackageJob supports overriding the job image and selecting the application revision.'
+  - '.juliabundleignore supports .gitignore-style negation (! re-includes), comments and blank lines skipped.'
+  fixes:
+  - 'Fixed MethodError in JuliaHub.Experimental.registries.'
+  - 'JuliaHub.application(s) handles bad API responses more gracefully.'
+  - 'Buffered streamed job logs resume from the requested offset instead of tailing.'
+- version: v0.1.17
+  date: '2025-12-16'
+  fixes:
+  - 'Fix fetching logs for running jobs.'
+- version: v0.1.16
+  date: '2025-12-12'
+  additions:
+  - 'Support for JuliaHub instances using MinIO as datasets storage backend.'
+  fixes:
+  - 'Default the log .message property to empty string when omitted by a backend bug.'
+  other:
+  - 'Declared compatible with JSON.jl v1.'
+- version: v0.1.15
+  date: '2025-08-29'
+  changed:
+  - 'Improved the error message thrown when job submission fails.'
+  fixes:
+  - 'Top-level .juliabundleignore files correctly handled in JuliaHub.appbundle.'
+  - 'JuliaHub.upload_dataset throws JuliaHubError on certain backend errors.'
+- version: v0.1.14
+  date: '2025-06-11'
+  additions:
+  - 'Support for displaying and submitting batch image options with tags (JuliaHub v6.10+).'

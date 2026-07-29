@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/JuliaComputing
+packages:
+- language: julia
+  registry: Julia General Registry
+  name: JuliaHub
+  uuid: bc7fa6ce-b75e-4d60-89ad-56c957190b6e
+  version: 0.1.17
+  url: https://juliahub.com/ui/Packages/General/JuliaHub
+  repository: https://github.com/JuliaComputing/JuliaHub.jl
+  docs: https://help.juliahub.com/julia-api/stable/
+  install: 'import Pkg; Pkg.add("JuliaHub")'
+  description: Official Julia client for the JuliaHub platform (jobs, datasets, apps, registries).
+  official: true
+- language: go
+  registry: github-releases
+  name: jh
+  url: https://github.com/JuliaComputing/jh
+  release: https://github.com/JuliaComputing/jh/releases/latest
+  install: 'curl -sSfL https://raw.githubusercontent.com/JuliaComputing/jh/main/install.sh | sh'
+  description: JuliaHub command-line interface (Go binary; OAuth2 device-flow auth, datasets, jobs, projects, registries, vulnerability scanning).
+  official: true
+  kind: cli
+- language: julia
+  registry: Julia General Registry
+  name: PkgAuthentication
+  url: https://github.com/JuliaComputing/PkgAuthentication.jl
+  install: 'import Pkg; Pkg.add("PkgAuthentication")'
+  description: Julia package-server authentication used to reach the JuliaHub private package server.
+  official: true

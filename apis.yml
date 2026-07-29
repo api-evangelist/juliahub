@@ -1,8 +1,27 @@
 aid: juliahub
 name: Juliahub
-description: Juliahub is a company surfaced as a portfolio company of menlo-ventures and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  JuliaHub is the company behind the Julia programming language, offering a cloud
+  platform for large-scale, reproducible Julia computing — batch jobs, dataset
+  management, application hosting, and a private package server — alongside
+  modeling and simulation products (Dyad / JuliaSim) and pharmaceutical modeling
+  (Pumas). The JuliaHub platform is accessed programmatically via the official
+  JuliaHub.jl Julia client and the `jh` command-line interface, authenticated
+  with OpenID Connect / OAuth2 (device flow) through a Dex identity provider.
 url: https://raw.githubusercontent.com/api-evangelist/juliahub/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://framerusercontent.com/images/6SuSTR7C9szjs3GPdl4LbMOEM.webp
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,10 +30,30 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
+- Julia
+- Scientific Computing
+- Cloud Computing
+- Modeling and Simulation
+- High Performance Computing
+- Data Science
+- Developer Tools
+- Package Registry
 - Company
-apis: []
+apis:
+- name: JuliaHub Platform API
+  description: >-
+    Programmatic access to the JuliaHub platform — jobs, datasets, applications,
+    projects, and package registries — via the official JuliaHub.jl Julia client
+    and the jh CLI, authenticated with OAuth2 / OpenID Connect.
+  humanURL: https://help.juliahub.com/julia-api/stable/
+  baseURL: https://juliahub.com
+  properties:
+  - type: APIReference
+    url: https://help.juliahub.com/julia-api/stable/
+  - type: Authentication
+    url: authentication/juliahub-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +62,60 @@ maintainers:
 common:
 - type: Website
   url: https://juliahub.com
+- type: DeveloperPortal
+  url: https://juliahub.com/products/juliahub
+- type: Documentation
+  url: https://docs.juliahub.com
+- type: APIReference
+  url: https://help.juliahub.com/julia-api/stable/
+- type: GettingStarted
+  url: https://help.juliahub.com/julia-api/stable/
+- type: HelpCenter
+  url: https://help.juliahub.com
+- type: Support
+  url: https://juliahub.com/company/contact-us
+- type: Blog
+  url: https://juliahub.com/blog
+- type: GitHubOrganization
+  url: https://github.com/JuliaComputing
+- type: Pricing
+  url: https://juliahub.com/pricing/juliahub
+- type: SignUp
+  url: https://juliahub.com/ui/Register
+- type: Login
+  url: https://juliahub.com/ui/Login
+- type: TermsOfService
+  url: https://juliahub.com/legal/terms
+- type: PrivacyPolicy
+  url: https://juliahub.com/legal/privacy-policy
+- type: Authentication
+  url: authentication/juliahub-authentication.yml
+- type: OAuthScopes
+  url: scopes/juliahub-scopes.yml
+- type: WellKnown
+  url: well-known/juliahub-well-known.yml
+- type: Packages
+  url: packages/juliahub-packages.yml
+- type: SDKs
+  url: packages/juliahub-packages.yml
+- type: CLI
+  url: cli/juliahub-cli.yml
+- type: ChangeLog
+  url: changelog/juliahub-changelog.yml
+- type: Conformance
+  url: conformance/juliahub-conformance.yml
+- type: Conventions
+  url: conventions/juliahub-conventions.yml
+- type: LLMsTxt
+  url: llms/juliahub-llms.txt
+- type: Compliance
+  url: https://trust.juliahub.com/
+- type: TrustCenter
+  url: security/juliahub-trust-center.yml
+- type: DomainSecurity
+  url: security/juliahub-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

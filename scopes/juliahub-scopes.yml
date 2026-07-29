@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://juliahub.com/.well-known/openid-configuration
+docs: https://help.juliahub.com/julia-api/stable/guides/authentication/
+schemes:
+- name: OAuth2
+  source: well-known/juliahub-openid-configuration.json
+  issuer: https://auth.juliahub.com/dex
+  flows:
+  - flow: deviceCode
+    deviceAuthorizationUrl: https://auth.juliahub.com/dex/device/code
+    tokenUrl: https://auth.juliahub.com/dex/token
+  - flow: authorizationCode
+    authorizationUrl: https://auth.juliahub.com/dex/auth
+    tokenUrl: https://auth.juliahub.com/dex/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; returns an ID token.
+  flows: [deviceCode, authorizationCode]
+- scope: email
+  description: Access the user's email address and email_verified claim.
+  flows: [deviceCode, authorizationCode]
+- scope: profile
+  description: Access the user's profile claims (name, preferred_username, locale).
+  flows: [deviceCode, authorizationCode]
+- scope: groups
+  description: Access the user's group memberships on JuliaHub.
+  flows: [deviceCode, authorizationCode]
+- scope: offline_access
+  description: Issue a refresh token so the client can renew access without re-authenticating.
+  flows: [deviceCode, authorizationCode]

@@ -1,0 +1,31 @@
+# JuliaHub
+
+> JuliaHub is the company behind the Julia programming language, offering a cloud platform for large-scale Julia computing, modeling and simulation (JuliaSim / Dyad), and pharmaceutical modeling (Pumas). The JuliaHub platform is accessed programmatically through the official JuliaHub.jl Julia client and the `jh` command-line interface, authenticated with OpenID Connect / OAuth2.
+
+## Products
+- [JuliaHub platform](https://juliahub.com/products/juliahub): Cloud platform for Julia jobs, datasets, apps, and package hosting.
+- [Dyad](https://juliahub.com/products/dyad): Modeling and simulation product.
+- [Pumas](https://juliahub.com/products/pumas): Pharmaceutical modeling and simulation.
+- [Julia](https://juliahub.com/products/julia): The Julia programming language.
+
+## API & Developer Tools
+- [JuliaHub.jl API reference](https://help.juliahub.com/julia-api/stable/): Official Julia client for the JuliaHub platform (jobs, datasets, apps, registries).
+- [jh CLI](https://github.com/JuliaComputing/jh): JuliaHub command-line interface (datasets, jobs, projects, registries, vulnerability scanning).
+- [Authentication guide](https://help.juliahub.com/julia-api/stable/guides/authentication/): OAuth2 device flow / OpenID Connect via Dex.
+- [OIDC discovery](https://juliahub.com/.well-known/openid-configuration): Issuer https://auth.juliahub.com/dex.
+- [GitHub organization](https://github.com/JuliaComputing): Open-source Julia and JuliaHub tooling.
+
+## Docs
+- [Documentation](https://docs.juliahub.com): JuliaHub platform documentation.
+- [Help center](https://help.juliahub.com): Product help and guides.
+- [Blog](https://juliahub.com/blog): News and articles.
+
+## Trust & Security
+- [Trust Center](https://trust.juliahub.com/): SOC 2, PCI DSS, GDPR, CCPA.
+
+## Company
+- [Pricing (JuliaHub)](https://juliahub.com/pricing/juliahub)
+- [Sign up](https://juliahub.com/ui/Register)
+- [Log in](https://juliahub.com/ui/Login)
+- [Terms](https://juliahub.com/legal/terms)
+- [Privacy Policy](https://juliahub.com/legal/privacy-policy)

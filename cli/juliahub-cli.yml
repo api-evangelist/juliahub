@@ -1,0 +1,80 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/JuliaComputing/jh
+name: jh
+title: JuliaHub CLI
+language: go
+repository: https://github.com/JuliaComputing/jh
+releases: https://github.com/JuliaComputing/jh/releases/latest
+description: >-
+  Command-line interface for JuliaHub — dataset management, job execution,
+  project management, Git integration, package/registry management, and
+  vulnerability scanning. Authenticates with the OAuth2 device flow and JWT
+  bearer tokens against the JuliaHub platform REST API (GraphQL fallback).
+install:
+- method: script-unix
+  command: curl -sSfL https://raw.githubusercontent.com/JuliaComputing/jh/main/install.sh | sh
+  default_dir: $HOME/.local/bin
+- method: script-windows
+  command: .\install.ps1
+  default_dir: '%USERPROFILE%\.local\bin'
+- method: github-releases
+  url: https://github.com/JuliaComputing/jh/releases/latest
+auth:
+  flow: oauth2-device-code
+  login: jh auth login
+commands:
+- group: auth
+  description: OAuth2 device-flow authentication and token handling.
+  commands:
+  - jh auth login
+  - jh auth refresh
+  - jh auth status
+  - jh auth env
+- group: dataset
+  description: List, download, upload, and check status of datasets.
+  commands:
+  - jh dataset list
+  - jh dataset download <dataset-id> [version] [local-path]
+  - jh dataset upload [dataset-id] <file-path>
+  - jh dataset status <dataset-id> [version]
+- group: package
+  description: Search and inspect Julia packages across registries.
+  commands:
+  - jh package search [search-term]
+  - jh package info <package-name>
+  - jh package dependency <package-name>
+- group: registry
+  description: List and manage Julia package registries and permissions.
+  commands:
+  - jh registry list
+  - jh registry config <name>
+  - jh registry config add
+  - jh registry config update
+  - jh registry permission list <registry>
+  - jh registry permission set <registry> --user|--group <name> --privilege download|register
+  - jh registry permission remove <registry> --user|--group <name>
+- group: project
+  description: List and filter projects (GraphQL API).
+  commands:
+  - jh project list
+  - jh project list --user
+  - jh project list --user <username>
+- group: git
+  description: Git integration with automatic JuliaHub authentication.
+  commands:
+  - jh git-credential setup
+  - jh clone <username/project> [local-path]
+  - jh push [git-args...]
+  - jh fetch [git-args...]
+  - jh pull [git-args...]
+- group: julia
+  description: Install and run Julia configured against the JuliaHub package server.
+  commands:
+  - jh julia install
+- group: scan
+  description: Vulnerability scanning of packages and manifests (server-side Trivy).
+  commands:
+  - manifest scan (upload Manifest.toml)
+- group: admin
+  description: Administrative management of users, groups, tokens, credentials, and resources (requires admin permissions).
